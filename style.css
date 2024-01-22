@@ -283,3 +283,15 @@ form#button{
   background-color: #2C2C2C; 
   color: #C0C0C0;
 }
+
+.projectLink {
+  text-decoration: underline;
+  color: inherit;
+}
+
+.projectLink:hover{
+  font-size: 30px;
+  color: darkblue;
+  transition: 1s ease-in-out;
+  text-decoration: underline;
+}
