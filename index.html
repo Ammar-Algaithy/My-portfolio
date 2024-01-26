@@ -27,6 +27,7 @@
           <a class="topmenu" href="#about-me">About Me</a>
           <a class="topmenu" href="#skills">Skills</a>
           <a class="topmenu" href="#projects">Projects</a>
+          <a class="topmenu" href="#certificates">Certificates</a>
           <a class="topmenu" href="#contact">Contact</a>
         </div>
       </div>    
@@ -123,6 +124,39 @@
 
       </div>
     </section>
+
+    <!-- Certificates -->
+    <section id="certificates" class="certificates">
+      <h2>Certificates</h2>
+      <div style="clear:both;"></div>
+    
+      <div class="all-certificates">
+        <div class="certificate" onclick="showCertificate('html_finalprojimages/CourseraPythonCert.pdf')">
+          <img src="html_finalprojimages/python.png" alt="Python Certificate"/>
+          <h6>Programming in Python</h6>
+        </div>
+    
+        <div class="certificate" onclick="showCertificate('html_finalprojimages/CourseraCloudCert.pdf')">
+          <img src="html_finalprojimages/IBM-Cloud.png" alt="Cloud Computing"/>
+          <h6>Intro to Cloud Computing</h6>
+        </div>
+
+        <div class="certificate" onclick="showCertificate('html_finalprojimages/CourseraIntroToWebDev.pdf')">
+          <img src="html_finalprojimages/webDevelopment.png" alt="Intro to Web Development"/>
+          <h6>Intro to Web Development</h6>
+        </div>
+
+        <div class="certificate" onclick="showCertificate('html_finalprojimages/CodePathCyberCert.png')">
+          <img src="html_finalprojimages/cybersecurity.png" alt="Intro to Cybersecurity"/>
+          <h6>Intro to Cybersecurity</h6>
+        </div>
+
+        
+        <div id="certificateDisplay" class="certificate-display">
+
+        </div>
+      </div>
+    </section>
           
     <!-- Projects -->
     <section class="projects" id="projects">
@@ -133,7 +167,7 @@
 
         <div id="projects-container" class="projects-container">
           <div class="project-card">
-            <h3><h3><a href="#" class="projectLink">ANTI-DYSPRAXIA GLOVE</a></h3>
+            <h3><a href="#" class="projectLink">ANTI-DYSPRAXIA GLOVE</a></h3>
             <ul>
               <li>Created the Anti-Dyspraxia Glove as part of a four-person team, aiming to assist children with hand movement control difficulties.</li>
               <li>Implemented the code that utilized the incoming data from the sensors and drew conclusions.</li>
@@ -202,6 +236,16 @@
                   }
               });
           });
+      });
+      function showCertificate(imageSrc) {
+        var certificateDisplay = document.getElementById("certificateDisplay");
+        certificateDisplay.innerHTML = '<img src="' + imageSrc + '" alt="Certificate">';
+        certificateDisplay.style.display = "block";
+      }
+
+      // Close the certificate display on click
+      document.getElementById("certificateDisplay").addEventListener("click", function() {
+        this.style.display = "none";
       });
       </script>
   </body>
