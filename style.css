@@ -120,6 +120,16 @@ h2 {
   display: inline-block;
 }
 
+.resume {
+  font-size: 20px;
+  color:#2C2C2C;
+}
+
+.resume:hover{
+  color: blue;
+  font-size: 23px;
+  transition: 1.5s ease-out;
+}
 
 
 /* Skills */
