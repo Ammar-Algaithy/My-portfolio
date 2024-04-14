@@ -11,17 +11,15 @@
     <nav>
       <div id="home">
         <div class="profile_name">
-          Ammar Algaithy
+          <span>Ammar Algaithy</span>
           <div class="contact_info">
-            <img src="html_finalprojimages/envelope.png" alt="https://icons8.com/icon/124377/circled-envelope"/>
-          algaithyammar@gmail.com
-        </div>
-        <div style="clear:both;"></div>
-        <div class="contact_info">
-          <img src="html_finalprojimages/phone.png" alt="https://icons8.com/icon/124377/circled-envelope"/>
-          +1(347) 801-6000
-
-        </div>
+              <img src="html_finalprojimages/envelope.png" alt="https://icons8.com/icon/124377/circled-envelope"/>
+            algaithyammar@gmail.com
+          </div>
+          <div class="contact_info">
+            <img src="html_finalprojimages/phone.png" alt="https://icons8.com/icon/124377/circled-envelope"/>
+            +1(347) 801-6000
+          </div>
         </div>
         <div class="topdiv">
           <a class="topmenu" href="#about-me">About Me</a>
@@ -39,22 +37,23 @@
         <img src="html_finalprojimages/logo.png" class="profile_image"/>
       </div>
 
-      <div>
+      <div class="intro">
           <h1>
-            Hi, I'm Ammar Algaithy! <a href="html_finalprojimages/Ammar_Algaithy_Resume.pdf" class="resume" download>Resume</a>
+            Hi, I'm Ammar! <a href="html_finalprojimages/Algaithy's_Resume.docx" class="resume" download>Resume</a>
           </h1>
           <p>
-            I am keenly interested in software engineering and data engineering, shaped by my studies at Canisius University. 
-            My drive to create software solutions, optimize system performance, and work with data prepares me to contribute effectively to tech projects and teams.
+            I am a fourth-year student at Canisius University, passionate about Computer Science and Data Science. 
+            I thrive at the intersection of code and creativity, designing security-focused databases, crafting predictive machine learning models, and creating web apps. 
+            When I'm not coding, I'm capturing nature's beauty through my lens. 
+            Excited to bring my diverse skill set and enthusiasm for tech to any team, let's connect and explore endless possibilities together!  
           </p>
       </div>
     </section>
               
     <!-- Skills -->
-    <section id="skills">
-      <h2>Skills</h2>
-      <div style="clear:both;"></div>
-
+    <section>
+      <h1>Skills</h1>
+      <hr>
       <div class="all_skills">
         <div class="skill">
           <img src="html_finalprojimages/html5.png"/>
@@ -126,10 +125,10 @@
     </section>
 
     <!-- Certificates -->
-    <section id="certificates" class="certificates">
-      <h2>Certificates</h2>
+    <section>
+      <h1>Certificates</h1>
+      <hr>
       <div style="clear:both;"></div>
-    
       <div class="all-certificates">
         <div class="certificate" onclick="showCertificate('html_finalprojimages/CourseraPythonCert.png')">
           <img src="html_finalprojimages/python.png" alt="Python Certificate"/>
@@ -163,11 +162,9 @@
           
     <!-- Projects -->
     <section class="projects" id="projects">
-      <h2>
-        Projects
-      </h2>
+      <h1>Projects</h1>
+      <hr>
       <div style="clear:both;"></div>
-
         <div id="projects-container" class="projects-container">
           <div class="project-card">
             <h3><a href="#" class="projectLink">ANTI-DYSPRAXIA GLOVE</a></h3>
@@ -199,6 +196,19 @@
               <li>An interactive and more complex website involves incorporating various elements such as dynamic content, user interactivity, database integration, and more advanced functionalities.</li>
             </ul>
           </div>
+          <div class="project-card">
+            <h3><a href="#" class="projectLink">MACHINE LEARNING MODEL: SEPSIS SURVIVAL PREDICTOR</a></h3>
+            <ul>
+                <li>Implemented a predictive machine learning model using Python, TensorFlow, and scikit-learn to forecast sepsis survival rates, focusing on high-risk patient groups.</li>
+                <li>Conducted comprehensive data preprocessing and feature extraction from diverse medical datasets, resulting in a robust model training process.</li>
+                <li>Accomplished model validation with a PR AUC of 97% and ROC AUC of 70%, validating the predictive accuracy and clinical applicability of the model.</li>
+            </ul>
+            <!-- Embed the PDF using an iframe -->
+            <div class="pdf-section" style="display: none;">
+              <iframe src="html_finalprojimages/Algaithy'sProject1.pdf" width="100%" height="500px" style="border: none;"></iframe>
+          </div>
+        </div>
+          <hr>
     </div>
     </section>
     <div style="clear:both;"></div>
@@ -207,7 +217,7 @@
       <div class="flex_center">
           <legend class="introduction">Contact Me</legend>
           <form id="contactForm">
-              <label for="name">Name:   </label>
+              <label for="name">Name:</label>
               <input type="text" id="name" name="name"><br><br>
           
               <label for="email">Email Address:</label>
@@ -223,32 +233,31 @@
           </form>
           <p id="returnedMessage"></p>
       </div>
-  </section>
+    </section>
   
     <script>
       $(document).ready(function() {
-          $("#contactForm").submit(function(event) {
-              event.preventDefault();  // Prevent default form submission
-              
-              $.ajax({
-                  type: "POST",
-                  url: "contact.php",
-                  data: $(this).serialize(),  // Serialize the form data
-                  success: function(response) {
-                      $("#returnedMessage").text(response);  // Update the returnedMessage element
-                  }
-              });
-          });
-      });
-      function showCertificate(imageSrc) {
-        var certificateDisplay = document.getElementById("certificateDisplay");
-        certificateDisplay.innerHTML = '<img src="' + imageSrc + '" alt="Certificate">';
-        certificateDisplay.style.display = "block";
-      }
-
-      // Close the certificate display on click
-      document.getElementById("certificateDisplay").addEventListener("click", function() {
-        this.style.display = "none";
+        $("#contactForm").submit(function(event) {
+            event.preventDefault();  // Prevent default form submission
+            
+            $.ajax({
+                type: "POST",
+                url: "https://formspree.io/gaithawa@gmail.com",
+                data: $(this).serialize(),  // Serialize the form data
+                success: function(response) {
+                    $("#returnedMessage").text("Your message has been sent. Thank you!");  
+                },
+                error: function(xhr, status, error) {
+                    $("#returnedMessage").text("Sorry, there was an error sending your message.");  
+                }
+            });
+        });
+        $(".projectLink").click(function(event) {
+            event.preventDefault(); // Prevent default link behavior
+            
+            // Toggle visibility of PDF section
+            $(this).closest('.project-card').find('.pdf-section').toggle();
+        });
       });
       </script>
   </body>
