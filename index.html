@@ -2,9 +2,10 @@
 <html>
   <head>
     <title>Ammar Algaithy - Portfolio</title>
+    <meta name="description" content="Explore the portfolio of Ammar Algaithy, a fourth-year student passionate about Computer Science and Data Science. Discover projects, skills, certificates, and contact information. Let's connect and explore endless possibilities together!">
+    <meta name="keywords" content="Ammar Algaithy, Computer Science, Data Science, Portfolio, Projects, Skills, Certificates, Contact">
     <link rel="stylesheet" href="./style.css"/>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
   </head>
   <body>
     <!-- Navigation Bar -->
@@ -18,7 +19,7 @@
           </div>
           <div class="contact_info">
             <img src="html_finalprojimages/phone.png" alt="https://icons8.com/icon/124377/circled-envelope"/>
-            +1(347) 801-6000
+            <p style="background-color: #f2f0f0; color: #f2f0f0;">+1(111) 111 - 1111</p>
           </div>
         </div>
         <div class="topdiv">
@@ -26,7 +27,7 @@
           <a class="topmenu" href="#skills">Skills</a>
           <a class="topmenu" href="#projects">Projects</a>
           <a class="topmenu" href="#certificates">Certificates</a>
-          <a class="topmenu" href="#contact">Contact</a>
+          <!--<a class="topmenu" href="#contact">Contact</a>-->
         </div>
       </div>    
     </nav>
@@ -38,8 +39,11 @@
       </div>
 
       <div class="intro">
+          <div class="resume-popup">
+            To obtain a copy of my resume, kindly reach out to me via email at <span style="font-size: 18px; font-weight: bold; color: #007bff;">algaithyammar@gmail.com.</span> I would be delighted to provide it to you. Thank you for your interest.
+          </div>
           <h1>
-            Hi, I'm Ammar! <a href="html_finalprojimages/Algaithy's_Resume.docx" class="resume" download>Resume</a>
+            Hi, I'm Ammar! <a href="#" class="resume">Resume</a>
           </h1>
           <p>
             I am a fourth-year student at Canisius University, passionate about Computer Science and Data Science. 
@@ -176,7 +180,7 @@
           </div>
           <hr>
           <div class="project-card">
-            <h3><a href="https://brahe.canisius.edu/~algaitha/crypt-backup/Cryptography/main.html" class="projectLink">ENCRYPTION WEB SITE</a></h3>
+            <h3><a href="https://brahe.canisius.edu/~algaitha/crypt-backup/Cryptography/main.html" class="projectLink" onclick="navigateToUrl(this)">ENCRYPTION WEB SITE</a></h3>
             <ul>
               <li>Programmed a text encryption web application as part of a class project in Web Development, utilizing HTML, CSS, JavaScript, and PHP.</li>
               <li>Designed encryption and decryption algorithms using the technologies to secure and protect text-based data.</li>
@@ -192,9 +196,9 @@
           </div>
           <hr>
           <div class="project-card">
-            <h3><a href="https://brahe.canisius.edu/~algaitha/personalWeb/homePage.html" class="projectLink">Interactive and More Complex Website</a></h3>
+            <h3><a href="https://brahe.canisius.edu/~algaitha/personalWeb/homePage.html" class="projectLink" onclick="navigateToUrl(this)">Interactive and More Complex Website</a></h3>
             <ul>
-              <li>An interactive and more complex website involves incorporating various elements such as dynamic content, user interactivity, database integration, and more advanced functionalities.</li>
+                <li>An interactive and more complex website involves incorporating various elements such as dynamic content, user interactivity, database integration, and more advanced functionalities.</li>
             </ul>
           </div>
           <hr>
@@ -211,10 +215,23 @@
           </div>
         </div>
           <hr>
+          <div class="project-card">
+            <h3><a href="html_finalprojimages/FraudulentLinearRegModel.pdf" class="projectLink">FraudGuard ML</a></h3>
+            <ul>
+              <li>Developed an ML model, named FraudGuard ML, utilizing logistic regression, to construct a fraud detection system for a bank web application.</li>
+              <li>Achieved a high accuracy of approximately 95.87% in classifying transactions as fraudulent or legitimate, with particular emphasis on precision (0.96) and recall (0.99) for legitimate transactions.</li>
+              <li>Identified key features such as "Online Order," "Ratio to Median Purchase Price," and "Distance from Last Transaction" as significant contributors to fraud prediction, leading to actionable insights for enhancing fraud detection systems and risk mitigation strategies.</li>
+            </ul>
+            <!-- Embed the PDF using an iframe -->
+            <div class="pdf-section" style="display: none;">
+              <iframe src="html_finalprojimages/FraudulentLinearRegModel.pdf" width="100%" height="500px" style="border: none;"></iframe>
+          </div>
+        </div>
+        <hr>
     </div>
     </section>
     <div style="clear:both;"></div>
-
+    <!--
     <section id="contact">
       <div class="flex_center">
           <legend class="introduction">Contact Me</legend>
@@ -236,9 +253,11 @@
           <p id="returnedMessage"></p>
       </div>
     </section>
+    -->
   
     <script>
       $(document).ready(function() {
+        /*
         $("#contactForm").submit(function(event) {
             event.preventDefault();  // Prevent default form submission
             
@@ -253,18 +272,45 @@
                     $("#returnedMessage").text("Sorry, there was an error sending your message.");  
                 }
             });
+        */
+
+        $(".resume").click(function(event) {
+            event.preventDefault(); // Prevent default link behavior
+            var resumePopups = document.getElementsByClassName("resume-popup");
+            for (var i = 0; i < resumePopups.length; i++) {
+                $(resumePopups[i]).animate({left: '50%', opacity: 'toggle'}, 'slow'); // Slide in from left to right
+            }
         });
+
+        // Hide popup when clicked outside
+        $(document).click(function(event) {
+            if (!$(event.target).closest('.resume-popup').length && !$(event.target).hasClass('resume')) {
+                $(".resume-popup").animate({left: '-100%', opacity: 'toggle'}, 'slow'); // Slide out to the left
+            }
+        });
+
         $(".projectLink").click(function(event) {
             event.preventDefault(); // Prevent default link behavior
             
             // Toggle visibility of PDF section
             $(this).closest('.project-card').find('.pdf-section').toggle();
         });
+
+        function showCertificate(imageUrl) {
+            // Open a new window with the certificate image
+            window.open(imageUrl, '_blank', 'width=800,height=600');
+        }
+
+        function navigateToUrl(link) {
+            event.preventDefault(); // Prevent default link behavior
+            var url = link.getAttribute('href'); // Get the URL from the anchor tag
+            window.location.href = url; // Navigate to the URL
+        }
       });
-      function showCertificate(imageUrl) {
-          // Open a new window with the certificate image
-          window.open(imageUrl, '_blank', 'width=800,height=600');
-      }
-      </script>
+    </script>
+
+    <footer>
+      <p>© 2024 Ammar Algaithy.</p>
+    </footer>
   </body>
 </html>

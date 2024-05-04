@@ -88,7 +88,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 40px;
+
 }
 
 .intro h1 {
@@ -119,6 +120,25 @@ body {
   font-size: 20px;
   color:#2C2C2C;
 }
+
+.resume-popup {
+  display: none;
+  position: fixed;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  top: 50%; /* Adjusted to 50% */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 300px;
+  height: 100px;
+  box-shadow: 0 3px 10px gray;
+}
+
+
 
 .resume:hover{
   color: blue;
@@ -234,14 +254,24 @@ section h1 {
   margin-left: 1.5cm;
 }
 
+.projectLink {
+  display: block; /* Ensure the link occupies the full width of the container */
+  font-size: 25px; /* Match the font size to the previous h3 style */
+  margin-left: 30px; /* Apply left margin to match previous h3 style */
+  text-decoration: underline;
+  color: inherit;
+}
+
+.projectLink:hover {
+  font-size: 30px;
+  color: darkblue;
+  transition: 1s ease-in-out;
+  text-decoration: underline;
+}
+
 .project-card {
   margin: 0 15px 15px 30px;
   padding-bottom: 5px;
-}
-
-.project-card h3 {
-  font-size: 25px;
-  margin-left: 30px;
 }
 
 .project-card li {
@@ -319,20 +349,19 @@ form#button{
   color: #C0C0C0;
 }
 
-.projectLink {
-  text-decoration: underline;
-  color: inherit;
-}
-
-.projectLink:hover{
-  font-size: 30px;
-  color: darkblue;
-  transition: 1s ease-in-out;
-  text-decoration: underline;
-}
-
 @media (max-width: 768px) {
   .profile_image {
     width: 200px;
   }
+}
+
+
+footer {
+  width: 100%;
+  padding-left: 20px;
+}
+
+footer p {
+  color: #131313;
+  margin-bottom: 0;
 }
