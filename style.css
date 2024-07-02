@@ -32,8 +32,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center; 
-  margin: 0 10px; 
   padding: 10px;
+  margin-bottom: 0;
 }
 
 .topmenu:hover {
@@ -90,6 +90,10 @@ body {
   align-items: center;
   margin-top: 40px;
 
+}
+
+.intro {
+  margin-top: 50px;
 }
 
 .intro h1 {
@@ -150,6 +154,7 @@ body {
 /* Skills */
 #skills{
   display: block;
+  margin-left: 50px;
 }
 
 .all_skills {
@@ -190,6 +195,7 @@ section h1{
 /* Certificates */
 
 .all-certificates {
+  margin-left: 50px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -247,7 +253,6 @@ section h1 {
 
 
 /* Projects */
-
 .projects-container hr {
   border: 1px solid lightgray;
   width: 75%;
@@ -274,6 +279,9 @@ section h1 {
   padding-bottom: 5px;
 }
 
+.project-card p {
+  margin-left: 30px;
+}
 .project-card li {
   font-size: 20px;
   margin-left: 30px;
@@ -290,7 +298,7 @@ section#contact {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1); /* Two layers of shadow for depth */
   max-width: 600px;
   margin: 50px auto;
-  transition: transform 0.3s ease-in-out; /* Smooth transition for hover effect */
+  transition: transform 2s ease-in-out; /* Smooth transition for hover effect */
 }
 
 section#contact:hover {
